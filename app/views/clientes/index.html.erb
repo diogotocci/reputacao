@@ -4,7 +4,6 @@
 		<th>Nome</th>
 		<th>Idade</th>
 		<th></th>
-		
 	</tr>
 <% @clientes.each do |cliente| %>
 <tr>
@@ -16,8 +15,7 @@
 	</td>
 	<td>
 		<%= link_to 'Mostrar', action: 'show', id: cliente %> |
-		<%= link_to 'Editar', action: 'edit', id: cliente %> |
-		<%= link_to 'Deletar', action: 'destroy', id: cliente %> 
+		<%= link_to 'Editar', action: 'edit', id: cliente %> 
 	</td>
 </tr>
 <% end %>

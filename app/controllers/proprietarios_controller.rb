@@ -2,10 +2,20 @@
 class ProprietariosController < ApplicationController
 	def index
 		@proprietarios = Proprietario.order("nome")
+		
+		respond_to do |format|
+			format.html
+			format.js
+		end
 	end
 	
 	def show
 		@proprietario = Proprietario.find(params[:id])
+		
+		respond_to do |format|
+			format.html
+			format.js
+		end
 	end
 	
 	def new

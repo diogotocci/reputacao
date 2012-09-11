@@ -6,10 +6,20 @@ class ClientesController < ApplicationController
 	
 	def show
 		@cliente = Cliente.find(params[:id])
+		
+		respond_to do |format|
+			format.html
+			format.js
+		end
 	end
 	
 	def new
 		@cliente = Cliente.new
+		
+		respond_to do |format|
+			format.html
+			format.js
+		end
 	end
 	
 	def create
