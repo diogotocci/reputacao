@@ -1,0 +1,39 @@
+<%= form_for(@qualificacao) do |f| %>
+  <% if @qualificacao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@qualificacao.errors.count, "error") %> prohibited this qualificacao from being saved:</h2>
+
+      <ul>
+      <% @qualificacao.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  	<!--- Exibindo no select os nomes dos clientes --->
+	<% if @qualificacao.cliente %>
+		<%= f.hidden_field 'cliente_id' %>
+	<% else %>
+		<p><%= f.label :cliente_id %>
+		<%= f.collection_select(:cliente_id, Cliente.order('nome'), :id, :nome, {:prompt => true}) %></p>
+    <% end %>
+  </div>
+  <div class="field">
+	<!--- Exibindo no select os nomes dos propretarios --->
+	<% if @qualificacao.proprietario %>
+		<%= f.hidden_field 'proprietario_id' %>
+	<% else %>
+		<p><%= f.label :proprietario_id %>
+		<%= f.collection_select(:proprietario_id, Proprietario.order('nome'), :id, :nome, {:prompt => true}) %></p>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :nota %>
+    <%= f.text_field :nota %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

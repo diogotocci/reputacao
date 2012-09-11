@@ -1,0 +1,23 @@
+<%= form_for :cliente, url: {action: 'create'} do |f| %>
+<% if @cliente.errors.any? %>
+	<ul>
+		<% @cliente.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+<% end %>
+<div class="field">
+	<%= f.label :nome%>
+	<%= f.text_field :nome %><br/>
+</div>
+<div class="field">
+	<%= f.label :idade%>
+	<%= f.text_field :idade %><br/>
+</div>
+<div class="actions">	
+	<%= submit_tag 'Adicionar' %>
+</div>
+<% end %>
+| <%= link_to 'Voltar', {action: 'index' } %> |

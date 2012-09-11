@@ -1,0 +1,30 @@
+<h2>Listar Proprietarios</h2>
+<table class="table table-striped">
+	<tr>
+		<th>Nome</th>
+		<th>Nacionalidade</th>
+		<th></th>
+	</tr>
+<% @proprietarios.each do |proprietario| %>
+	<tr>	
+		<td>
+			<%= proprietario.nome %>
+		</td>
+		<td>
+			<%= proprietario.nacionalidade %>
+		</td>
+		<td>
+			<%= link_to 'Mostrar', action: 'show', id: proprietario %> | 
+			<%= link_to 'Editar', action: 'edit', id: proprietario %> |
+			<%= link_to 'Deletar', action: 'destroy', id: proprietario %> 
+		</td>
+	</tr>
+<% end %>
+</table>
+<table>
+	<tr>
+		<td>
+			<a href='/proprietarios/new' class='btn btn-small pull-right'>Inserir Novo</a><br/>
+		</td>
+	</tr>
+</table>

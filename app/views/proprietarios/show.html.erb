@@ -1,0 +1,41 @@
+<h2>Exibir Proprietario</h2>
+<table class="table table-striped">
+	<tr>
+		<th>Nome</th>
+		<th>Nacionalidade</th>
+		<th></th>
+		
+	</tr>
+	<tr>	
+		<td>
+			<%= @proprietario.nome %>
+		</td>
+		<td>
+			<%= @proprietario.nacionalidade %>
+		</td>
+		<td>
+			| <%= link_to 'Editar', {action: 'edit', id: @proprietario } %> |
+		</td>
+	</tr>
+
+
+<!---
+<p>
+	<b>Nome: </b>
+	<%= @proprietario.nome %>
+</p>
+<p>
+	<b>Nacionalidade: </b>
+	<%= @proprietario.nacionalidade %>
+</p>
+--->
+
+</table>
+
+ | 
+<%= link_to "Qualificar este proprietario", :controller => "qualificacoes",
+                                            :action => "new",
+                                            :proprietario => @proprietario %> | 
+
+
+<%= link_to 'Voltar', {action: 'index' } %> |

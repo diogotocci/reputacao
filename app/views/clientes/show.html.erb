@@ -1,0 +1,28 @@
+<h2>Exibir Cliente</h2>
+<table class="table table-striped">
+	<tr>
+		<th>Nome</th>
+		<th>Idade</th>
+		<th></th>
+		
+	</tr>
+	<tr>	
+		<td>
+			<%= @cliente.nome %>
+		</td>
+		<td>
+			<%= @cliente.idade %>
+		</td>
+		<td>
+			| <%= link_to 'Editar', {action: 'edit', id: @cliente } %> |
+		</td>
+	</tr>
+</table>
+
+ | 
+<%= link_to "Nova Qualificacao", :controller => "qualificacoes",
+                                            :action => "new",
+                                            :proprietario => @cliente %> | 
+
+
+<%= link_to 'Voltar', {action: 'index' } %> |

@@ -1,0 +1,31 @@
+<h2>Listar Clientes</h2>
+<table class="table table-striped">
+	<tr>
+		<th>Nome</th>
+		<th>Idade</th>
+		<th></th>
+		
+	</tr>
+<% @clientes.each do |cliente| %>
+<tr>
+	<td>
+		<%= cliente.nome %>
+	</td>
+	<td>
+		<%= cliente.idade %>
+	</td>
+	<td>
+		<%= link_to 'Mostrar', action: 'show', id: cliente %> |
+		<%= link_to 'Editar', action: 'edit', id: cliente %> |
+		<%= link_to 'Deletar', action: 'destroy', id: cliente %> 
+	</td>
+</tr>
+<% end %>
+</table>
+<table>
+	<tr>
+		<td>
+			<a href='clientes/new' class='btn btn-small pull-right'>Inserir Novo</a><br/>
+		</td>
+	</tr>
+</table>
