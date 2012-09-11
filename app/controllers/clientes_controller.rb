@@ -1,25 +1,20 @@
 # encoding: utf-8
 class ClientesController < ApplicationController
+	respond_to :html, :js
+	
 	def index
 		@clientes = Cliente.order("nome")
+		respond_with @cliente
 	end
 	
 	def show
 		@cliente = Cliente.find(params[:id])
-		
-		respond_to do |format|
-			format.html
-			format.js
-		end
+		respond_with @cliente
 	end
 	
 	def new
 		@cliente = Cliente.new
-		
-		respond_to do |format|
-			format.html
-			format.js
-		end
+		respond_with @cliente
 	end
 	
 	def create
@@ -50,7 +45,7 @@ class ClientesController < ApplicationController
 		@cliente = Cliente.find(params[:id])
 		#deleta o cliente pelo id recebido
 		@cliente.destroy
-		
+		respond_with @cliente
 		#retorna para a index
 		redirect_to(action: "index")
 	end

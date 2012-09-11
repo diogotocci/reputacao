@@ -1,25 +1,20 @@
 # encoding: utf-8
 class ProprietariosController < ApplicationController
+	respond_to :html, :js 
+
 	def index
 		@proprietarios = Proprietario.order("nome")
-		
-		respond_to do |format|
-			format.html
-			format.js
-		end
+		respond_with @proprietario
 	end
 	
 	def show
 		@proprietario = Proprietario.find(params[:id])
-		
-		respond_to do |format|
-			format.html
-			format.js
-		end
+		respond_with @proprietario
 	end
 	
 	def new
 		@proprietario = Proprietario.new
+		respond_with @proprietario
 	end
 	
 	def create
@@ -50,7 +45,7 @@ class ProprietariosController < ApplicationController
 		@proprietario = Proprietario.find(params[:id])
 		#deleta o proprietario pelo id recebido
 		@proprietario.destroy
-		
+		respond_with @proprietario
 		#retorna para a index
 		redirect_to(action: "index")
 	end

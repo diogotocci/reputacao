@@ -1,18 +1,21 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.0'
+gem 'rails', '3.2.8'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-group :development , :test do
-	gem 'mysql2'
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
-group :production do
-	gem 'pg'
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
+  gem 'database_cleaner'
 end
 
+gem 'mysql2'
 gem 'bootstrap-sass', '~> 2.1.0.0'
 
 
@@ -44,14 +47,3 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
-
-group :development , :test do
-	gem 'rspec-rails'
-	gem 'factory_girl_rails' 
-end
-group :test do
-	gem 'faker' 
-	gem 'capybara' 
-	gem 'guard-rspec' 
-	gem 'launchy'
-end 

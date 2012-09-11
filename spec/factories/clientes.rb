@@ -1,8 +1,12 @@
 # spec/factories/clientes.rb 
-require 'faker' 
+ 
 FactoryGirl.define do 
 	factory :cliente do | f | 
-	f.nome { Faker::Nome.nome } 
-	f.idade { Faker::Idade.idade } 
+	  f.nome "John" 
+	  f.idade "24" 
 	end 
+	
+	factory :invalid_cliente, parent: :cliente do |f|
+	  f.nome nil
+	end  
 end  
